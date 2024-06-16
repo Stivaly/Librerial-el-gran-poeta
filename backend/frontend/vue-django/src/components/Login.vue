@@ -2,12 +2,11 @@
   <div class="fondo">
     <div class="container">
       <div class="contenido">
-        <h3>Login</h3>
-        <form @submit.prevent="enviarFormulario">
-          <input ref="usernameInput" type="" placeholder="Username" v-model="form.username">
-          <input ref="passwordInput" type="password" :class="{'error': validarPassword}" placeholder="Contraseña" v-model="form.password">
-          <p v-if="validarPassword">Debe incluir al menos una mayúscula, una minúscula y un número</p>
-          <a href="#" class="forgot-password">Olvidé mi contraseña</a>
+        <h2>Login</h2>
+        <form @submit.prevent="enviarFormulario" id="login-form">
+          <input ref="usernameInput" id="usernameInput" type="" placeholder="Username" v-model="form.username">
+          <input ref="passwordInput" id="passwordInput" type="password" :class="{'error': validarPassword}" placeholder="Contraseña" v-model="form.password">
+          <p v-if="validarPassword">Si no recuerdas tu contraseña debes contactar al administrador</p>
           <button type="submit">Iniciar sesión</button>
         </form>
       </div>
@@ -36,8 +35,11 @@ export default {
       axios.post(loginUrl, this.form)
         .then(response => {
           console.log("Login exitoso", response);
+          localStorage.setItem('token', response.data.token);
           // Manejo de la respuesta exitosa
           // Redireccionar, mostrar mensaje, etc.
+          // Redireccionar a la página de inicio
+          this.$router.push('/home'); // Redirige a la ruta principal, ajusta según tu configuración de rutas
         })
         .catch(error => {
           console.error("Error en el login", error);
@@ -89,7 +91,8 @@ export default {
 
   .fondo .container .contenido{
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
+      max-height: 350px;
       background: rgba(255, 255, 255, 0.89);
       padding: 20px;
       border-radius: 10px;
@@ -109,6 +112,7 @@ export default {
       border-radius: 5px;
       width: 100%;
       margin-bottom: 10px;
+      font-size: 18px;
   }
 
   .fondo .container .contenido input.error{
@@ -128,10 +132,10 @@ export default {
   }
 
   p{
-      font-size: 10px;
+      font-size: 14px;
       font-style: italic;
       color: rgb(31, 70, 243);
-      text-align: justify;
+      text-align: justify-center;
 
   }
 
