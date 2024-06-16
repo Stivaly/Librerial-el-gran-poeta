@@ -4,7 +4,7 @@
       <div class="contenido">
         <h2>Login</h2>
         <form @submit.prevent="enviarFormulario" id="login-form">
-          <input ref="usernameInput" id="usernameInput" type="" placeholder="Username" v-model="form.username">
+          <input ref="usernameInput" id="usernameInput" type="" placeholder="Correo Electrónico" v-model="form.username">
           <input ref="passwordInput" id="passwordInput" type="password" :class="{'error': validarPassword}" placeholder="Contraseña" v-model="form.password">
           <p v-if="validarPassword">Si no recuerdas tu contraseña debes contactar al administrador</p>
           <button type="submit">Iniciar sesión</button>
@@ -91,7 +91,7 @@ export default {
 
   .fondo .container .contenido{
       width: 100%;
-      max-width: 500px;
+      max-width: 400px;
       max-height: 350px;
       background: rgba(255, 255, 255, 0.89);
       padding: 20px;
