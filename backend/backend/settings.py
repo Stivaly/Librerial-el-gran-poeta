@@ -12,10 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
 
-load_dotenv()
+# Load environment variables
 PASSWORD = os.getenv('PASSWORD')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
