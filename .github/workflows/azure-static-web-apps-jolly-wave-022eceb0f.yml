@@ -19,6 +19,19 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Install Node.js dependencies
+        run: |
+          cd backend
+          cd frontend
+          cd vue-django
+          npm install
+          
+      - name: Build Vue application
+        run: |
+          cd backend
+          cd frontend
+          cd vue-django
+          npm run build      
 
       - name: Set up Node.js
         uses: actions/setup-node@v4.0.2
