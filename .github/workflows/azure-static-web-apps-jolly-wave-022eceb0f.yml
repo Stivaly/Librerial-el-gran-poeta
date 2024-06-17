@@ -20,10 +20,29 @@ jobs:
           submodules: true
           lfs: false
 
-      - name: Setup Node.js
+      - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.2
         with:
-          node-version: '20.x'
+          # Set always-auth in npmrc.
+          always-auth: false # optional, default is false
+          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+          node-version: 20.x # optional
+          # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+          node-version-file: package.json # optional
+          # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
+          architecture: x64 # optional
+          # Set this option if you want the action to check for the latest available version that satisfies the version spec.
+          check-latest: false # optional
+          # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
+          registry-url: # optional
+          # Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).
+          scope: # optional
+          # Used to pull node distributions from node-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+          token: ${{ github.server_url == 'https://github.com' && github.token || '' }} # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
+          cache: npm # optional
+          # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+          cache-dependency-path: vue-django/package-lock.json # optional
 
       - name: Build And Deploy
         id: builddeploy
@@ -34,9 +53,9 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./backend/frontend/vue-django/src" # App source code path
+          app_location: "./backend/frontend" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "backend/frontend/dist" # Built app content directory - optional
+          output_location: "vue-django/dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
