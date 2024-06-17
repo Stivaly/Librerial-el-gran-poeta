@@ -26,7 +26,7 @@ jobs:
           node-version: '20.x'
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20.x'
 
@@ -39,9 +39,9 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./backend/frontend/vue-django/src" # App source code path
+          app_location: "librerial-el-gran-poeta/backend/frontend/vue-django/dist" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "backend/frontend/dist" # Built app content directory - optional
+          output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
