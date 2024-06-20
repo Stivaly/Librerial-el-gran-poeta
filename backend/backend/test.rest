@@ -21,5 +21,11 @@ Content-Type: application/json
     "email": "sti@email.com"
 }
 
+{
+    "username": "admin23",
+    "password": "Admin123423!!",
+    "email": "sti@email.com"
+}
+
 
 

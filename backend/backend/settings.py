@@ -63,7 +63,9 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
-    "http://127.0.0.1:8089", # Ajusta el puerto según sea necesario
+    "http://127.0.0.1:8089",
+    "http://el-gran-poeta-production.azurewebsites.net:443",
+    "http://el-gran-poeta-login-1515.azurewebsites.net:443", # Ajusta el puerto según sea necesario
 ]
 
 ROOT_URLCONF = 'backend.urls'
