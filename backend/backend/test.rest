@@ -22,9 +22,8 @@ Content-Type: application/json
 }
 
 {
-    "username": "admin23",
-    "password": "Admin123423!!",
-    "email": "sti@email.com"
+    "username": "lepadmin",
+    "password": "123456789Lep"
 }
 
 
