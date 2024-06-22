@@ -17,6 +17,7 @@ import os
 # Load environment variables
 PASSWORD = os.getenv('PASSWORD')
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,12 +26,10 @@ DEFAULT_PORT = '5000'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# CREAR VARIABLE DE ENTORNO PARA LA SECRET_KEY
-SECRET_KEY = 'django-insecure-ujbuic71oe6*vtq9uie5p@k04o1h7(d&do+dsn1-^4)%6h&8*5'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['10.1.0.4']
 
