@@ -20,17 +20,19 @@ PASSWORD = os.getenv('PASSWORD')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+# Definición del puerto predeterminado para el servidor de desarrollo de Django
+DEFAULT_PORT = '5000'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# CREAR VARIABLE DE ENTORNO PARA LA SECRET_KEY
 SECRET_KEY = 'django-insecure-ujbuic71oe6*vtq9uie5p@k04o1h7(d&do+dsn1-^4)%6h&8*5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['el-gran-poeta-production.azurewebsites.net']
+ALLOWED_HOSTS = ['10.1.0.4']
 
 
 # Application definition
@@ -61,11 +63,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "http://127.0.0.1:8080",
-    "http://127.0.0.1:8089",
-    "http://el-gran-poeta-production.azurewebsites.net:443",
-    "http://el-gran-poeta-login-1515.azurewebsites.net:443", # Ajusta el puerto según sea necesario
+    "http://74.249.105.91", # Ajusta el puerto según sea necesario
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -98,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'elpoetabd',
         'USER': 'lepadmin',
-        'PASSWORD': PASSWORD,
+        'PASSWORD': PASSWORD, # CREAR VARIABLE DE ENTORNO PARA LA PASSWORD
         'HOST': 'elpoeeta-db.mysql.database.azure.com',
         'PORT': '3306',
         'OPTIONS': {
@@ -134,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-cl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 

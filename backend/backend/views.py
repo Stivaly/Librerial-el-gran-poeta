@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 def redirect_to_login(request):
-    return redirect('/login/')
+    return redirect('api/login/')
 
 
 @api_view(['POST'])

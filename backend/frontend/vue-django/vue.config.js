@@ -4,9 +4,8 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://el-gran-poeta-login-1515.azurewebsites.net',
+        target: 'http://10.1.0.4:5000',
         changeOrigin: true,
-        pathRewrite: { '^/api': '' }, // Esto elimina el prefijo '/api' de la ruta
       },
     },
   }

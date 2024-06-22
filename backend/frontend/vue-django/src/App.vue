@@ -10,7 +10,7 @@ export default {
   computed: {
     // Computed property para determinar si estamos en la página de login
     isLoginPage() {
-      return this.$route.path === '/login'; // Ajusta la ruta según la estructura de tus rutas
+      return this.$route.path === '/api/login'; // Ajusta la ruta según la estructura de tus rutas
     }
   }
 }
