@@ -55,12 +55,13 @@ El desarrollo de este sistema de inventario persigue los siguientes objetivos:
 
 ## 3. Tecnologías a Utilizar
 
-La elección de las tecnologías específicas para el desarrollo del proyecto se definirá en una etapa posterior, considerando factores como la escalabilidad, la seguridad y la facilidad de mantenimiento. Entre las opciones a evaluar se encuentran:
+La elección de las tecnologías específicas para el desarrollo del proyecto son:
 
 * Lenguajes de programación: Python, JavaScript, SQL
 * Frameworks web: Django, Bootstrapvue
 * Bases de datos: MySQL
 * Herramientas de control de versiones: Git, GitHub
+* Host: Microsoft Azure Cloud
 
 ## 4. Entregables del Proyecto
 
