@@ -74,15 +74,22 @@ Los entregables principales del proyecto serán:
 
 * Diseño de la arquitectura del sistema: Arquitectura Rest
 * Diseño de la base de datos: Modelo entidad relación
+* Diseño Interfaz de login.
+* Creación de la base de datos: Azure MySQL Database nativa
+* Creación de login: Bootstrapvue, API Django Rest Framework
+* Pruebas: De Estrés e Integración
+* Documentación de login.
+* Despliegue con servidor web Nginx en Máquina Virtual bajo puerto 80 por ahora: http://74.249.105.91/
+* Diseño interfaz inventario.
   
 ## 6. Próximos Pasos
 
 Los próximos pasos en el desarrollo del proyecto incluyen:
 
-* Implementación del sistema: Desarrollo del código fuente del sistema siguiendo las buenas prácticas de programación y las tecnologías seleccionadas.
-* Pruebas unitarias y de integración: Realización de pruebas unitarias y de integración para garantizar el correcto funcionamiento del sistema y la detección de errores tempranos.
-* Documentación del sistema: Elaboración de la documentación completa del sistema, incluyendo la arquitectura, las funcionalidades, la configuración y el uso del mismo.
 * Creación de manuales de usuario: Desarrollo de manuales de usuario específicos para cada rol de usuario, con instrucciones claras y ejemplos ilustrativos.
+* Desarrollo de inventario en el backend.
+* Integración con Frontend.
+* Pruebas CRUD.
 
 ## 7. Licencia
 
