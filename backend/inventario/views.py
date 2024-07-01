@@ -11,7 +11,9 @@ from django.shortcuts import get_object_or_404, redirect
 @api_view(['POST'])
 def agregar_producto(request):
     libro = LibroSerializer(data=request.data.get('libro'))
+    print(libro)
     bodega = BodegaSerializer(data=request.data.get('bodega'))
+    print(bodega)
     if libro.is_valid() and bodega.is_valid():
          return Response({'mensaje': 'Producto agregado exitosamente'}, status=201)
     else:
@@ -25,7 +27,8 @@ def eliminar_producto(request, id):
 
 @api_view(['GET'])
 def lista_productos(request):
-    libros = Libro.objects.all()
+    libros = Libro.objects.all().order_by('id_libro')
+    print(f"probando {libros}")
     serializer = LibroSerializer(libros, many=True)
     return Response(serializer.data, status=200)
 

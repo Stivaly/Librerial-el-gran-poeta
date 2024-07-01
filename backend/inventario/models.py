@@ -64,6 +64,9 @@ class Genero(models.Model):
         verbose_name = 'Genero'
         verbose_name_plural = 'Generos'
         ordering = ['genero']
+        
+    def __str__(self) -> str:
+        return self.genero
     
 class Libro(models.Model):
     id_libro = models.AutoField(primary_key=True)
@@ -85,10 +88,6 @@ class Libro(models.Model):
     
     def __str__(self) -> str:
         return self.libro_nombre
-    
-    
-    def __str__(self) -> str:
-        return self.genero
     
 class Region(models.Model):
     id_region = models.AutoField(primary_key=True)

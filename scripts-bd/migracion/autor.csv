@@ -1,4 +1,4 @@
-﻿id_autor,autor_genero,nombre_autor,autor_rating_promedio,cantidad_rating_autor,cantidad_comentarios,id_pais
+﻿id_autor,autor_genero,nombre_autor,autor_rating_promedio,cantidad_rating_autor,cantidad_comentarios,id_pais_id
 3028,Femenino,Loung Ung,4.31,28535,2655,37
 14196420,Femenino,Imbolo Mbue,3.95,40389,4632,38
 55474,Femenino,Cherry Adair,3.96,49606,3124,209
@@ -20,28 +20,8 @@
 4996938,Masculino,Yveta Germano,4.41,37,17,182
 8722,Femenino,Else Holmelund Minarik,4.25,90845,1099,54
 118712,Masculino,Martin Lindstrom,3.76,15255,1318,54
-3009628,Masculino,أحمد العسيلي,3.41,10826,1129,57
-1335181,Masculino,فاروق جويدة,3.95,27138,3611,57
 345869,Masculino,Yusuf Idris,3.73,22295,2319,57
-4413928,Masculino,حسام تمام,3.73,2549,434,57
-5817486,Masculino,دينا عماد,3.28,13509,1353,57
-6425980,Masculino,Amr Algendy - عمرو الجندي,3.1,13348,1807,57
-6451512,Masculino,منى ياسين,3.7,256,30,57
-6450590,Masculino,آية محمد حماد,3.77,523,76,57
-1446295,Masculino,شريف عرفة,3.89,14506,1788,57
-6522377,Masculino,إبراهيم الفقي,3.86,52134,3756,57
-7314557,Masculino,هدى قنديل,2.62,201,82,57
-3279601,Masculino,حسن الجندي,3.86,67841,7869,57
-6924701,Masculino,سامح فايز,3.3,308,78,57
-7352883,Masculino,هدى عبد المنعم,3.37,544,58,57
-5107897,Masculino,إبراهيم المحلاوي,3.34,1048,140,57
 6936817,Masculino,Tasneem Fehead,3.62,223,97,57
-5500154,Masculino,شيرين سامي,3.68,934,168,57
-6894757,Masculino,محمد إنسان,3.83,1301,115,57
-3047053,Masculino,جلال عامر,4.2,5382,512,57
-7729333,Masculino,محمد عصمت,3.2,9784,1558,57
-1270368,Masculino,خالد أبو شادي,4.18,14074,1937,57
-1846048,Masculino,رءوف شبايك,3.73,3401,456,57
 71688,Masculino,Nalini Singh,4.19,832291,55505,70
 6443115,Masculino,Petteri Hannila,4.09,242,64,69
 5221828,Masculino,Susan Laine,3.41,5056,998,69
@@ -86,7 +66,6 @@
 15322,Masculino,Indu Sundaresan,3.97,22417,2342,93
 13654965,Masculino,Durgesh Satpathy,3.92,205,12,93
 163176,Masculino,David Davidar,3.58,1637,162,93
-186034,Masculino,Kālidāsa,3.88,1844,141,93
 5894826,Masculino,Sameer Kamat,3.82,786,164,93
 168903,Masculino,Rajashree,3.01,1378,55,93
 4969048,Femenino,Nikita Singh,3.53,18663,1042,93
@@ -95,9 +74,7 @@
 1354155,Masculino,Malayattoor Ramakrishnan,3.86,4490,200,93
 5447823,Masculino,C. Radhakrishnan,3.91,1058,65,93
 7085305,Femenino,Shobha Rao,3.82,9139,1579,93
-14901967,Masculino,أبو الحسن علي الندوي,4.09,6115,767,93
 492884,Masculino,Amit Ray,4.68,1283,298,93
-29132,Masculino,Śāntideva,4.32,5415,142,93
 274735,Masculino,Rebecca Ryman,4.05,1423,132,93
 3221509,Femenino,Valerie Fitzgerald,4.12,1428,156,93
 128353,Masculino,Ronald Hutton,4.12,3636,305,93
@@ -109,7 +86,6 @@
 5107659,Masculino,Sri Chinmoy,4.47,657,38,93
 2958717,Femenino,Melanie Benjamin,3.77,112446,15049,93
 1441,Masculino,Ted Dekker,4.04,389664,23887,94
-2865234,Masculino,علي أحمد باكثير,3.69,12665,1444,94
 900615,Masculino,Maulana M. Syuhada,3.61,408,58,94
 881687,Masculino,Linus Suryadi,3.89,839,78,94
 637674,Masculino,Langit Kresna Hariadi,3.88,5658,523,94
@@ -159,25 +135,19 @@
 2789878,Masculino,QuinRose,4.21,46284,1845,119
 166635,Masculino,Masami Tsuda,4.08,38754,607,119
 164714,Masculino,Yoshiyuki Sadamoto,4.24,27244,798,119
-1018547,Femenino,Yōko Kamio,4.17,57261,1214,119
 4519463,Masculino,Kyousuke Motomi,4.34,121658,2266,119
 127404,Femenino,Tomoko Hayakawa,4.17,49120,821,119
 166674,Femenino,Yukiru Sugisaki,4.08,58714,437,119
 4958172,Masculino,Gosho Aoyama,4.27,99833,2637,119
 376347,Masculino,Peach-Pit,4.19,65143,861,119
-36351,Masculino,Shōhei Ōoka,3.97,1052,95,119
 2845502,Masculino,Hiroshi Sakurazaka,4.04,21901,2399,119
 70312,Masculino,Akira Yoshimura,3.93,2663,329,119
-646944,Femenino,Lady Nijō,3.93,453,42,119
-10983,Masculino,Sei Shōnagon,4.2,5096,458,119
 6447559,Masculino,Shinobu Amano,4.31,10869,277,119
 1395455,Masculino,Shoko Conami,4.15,14849,280,119
 4878191,Masculino,Hisamu Oto,4.35,19920,289,119
 2927166,Femenino,Kaoru Tada,4.2,5076,239,119
-5589647,Masculino,Marie Kondō,3.82,222605,25585,119
 6587174,Femenino,Eva Natsumi,3.19,99,38,119
 2767598,Femenino,Nana Haruta,3.88,7539,309,119
-182648,Femenino,Kaori Ozaki (尾崎かおり),4.27,6779,361,119
 250553,Femenino,Mick Takeuchi,4,7034,199,119
 922699,Masculino,COM,3.99,830,60,119
 7076636,Masculino,Shungiku Nakamura,4.1,45616,1073,119
@@ -214,11 +184,7 @@
 7020317,Masculino,ONE,4.46,68339,2552,119
 121814,Masculino,Allen Say,3.92,54013,3242,119
 9987,Femenino,Philippa Gregory,3.9,1320251,68925,123
-1452948,Masculino,صلاح الراشد,3.87,4809,589,126
-1108381,Masculino,طارق السويدان,4.05,21046,2087,126
-1304524,Masculino,سعد سعود الكريباني,4.11,5445,638,126
 8319172,Femenino,Puja Guha,4.08,125,68,126
-1195439,Masculino,عبد الله علي العبد الغني,3.87,2179,225,126
 6562809,Masculino,Elizabeth Fremantle,3.8,7226,1278,179
 119755,Femenino,Michelle Paver,4.2,80823,4859,139
 22421,Femenino,Christianna Brand,3.74,5303,538,138
@@ -289,9 +255,6 @@
 304060,Femenino,Svetlana Chmakova,4.15,45667,3739,190
 40411,Femenino,Immaculée Ilibagiza,4.44,38505,5347,188
 966321,Femenino,KareyLyn Parker (K.S.R. Kingworth),3.39,212,80,65
-1282417,Masculino,عبد الله ناصر الداوود,3.08,1996,459,9
-926628,Masculino,غازي عبد الرحمن القصيبي,3.77,66646,10961,9
-3407560,Masculino,خالد الباتلي,2.99,11201,1655,9
 4086715,Masculino,Kendare Blake,3.93,223603,31669,49
 1823273,Femenino,Tila Tequila,2.96,80,7,204
 6924387,Femenino,Balli Kaur Jaswal,3.91,25005,3207,204
@@ -318,9 +281,6 @@
 7874960,Femenino,Ofelia Gränd,3.88,2050,830,211
 7066657,Femenino,Petra F. Bagnardi,3.4,130,61,212
 6894841,Masculino,Felix Abt,3.75,159,43,212
-2043856,Masculino,محمد الماغوط,3.88,7810,984,205
-2957451,Masculino,مصطفى خليفة,4.03,9628,1831,205
-3078068,Masculino,أسماء معيكل,3.68,69,4,205
 4125251,Masculino,John Climacus,4.54,487,40,205
 5990662,Masculino,Wesley Chu,3.82,18676,2516,216
 6903476,Femenino,Yeyu,4.01,97,26,216
@@ -350,7 +310,6 @@
 957894,Masculino,Albert Camus,3.99,876454,30650,10
 6819578,Masculino,Augustine of Hippo,3.93,56663,2842,10
 16319,Masculino,Suetonius,4.01,16092,633,10
-1021062,Masculino,واسيني الأعرج,3.52,16070,2600,10
 7929831,Masculino,Apuleius,3.92,13193,754,10
 5413978,Femenino,L. Filloon,4.15,7835,518,192
 1270672,Masculino,K.Z. Snow,3.76,5986,1080,242
@@ -617,7 +576,6 @@
 971110,Masculino,Lisa J. Yarde,3.6,682,121,20
 1072930,Masculino,Theodore Odrach,4.01,118,46,25
 4113527,Masculino,Evgeny Morozov,3.67,2813,347,25
-6255,Masculino,Ryszard Kapuściński,4.17,37583,2738,25
 7132113,Femenino,Indra Vaughn,4.04,4819,1208,21
 25824,Masculino,Julio Cortázar,4.23,107165,5880,21
 6264,Masculino,Elisabeth Elliot,4.26,75322,2784,21
@@ -633,8 +591,6 @@
 40416,Femenino,Amélie Nothomb,3.61,99049,7965,21
 4715219,Femenino,Catherine West,4.18,2356,797,24
 232211,Masculino,Dzongsar Jamyang Khyentse,4.14,4258,317,35
-205563,Masculino,Meša Selimović,4.53,11138,356,28
-4859959,Masculino,Alija Izetbegović,4.33,12073,2323,28
 4637369,Masculino,Veronica Rossi,4.06,235583,19998,30
 454774,Masculino,Fábio Moon,4.08,45100,4654,30
 52683,Masculino,Jorge Amado,4.1,38728,2238,30
@@ -646,7 +602,7 @@
 6573685,Femenino,Isis Sousa,4.11,239,145,30
 7258750,Masculino,David Stringer,4.71,55,25,179
 89095,Masculino,Jawaharlal Nehru,4.1,9639,538,93
-59327,Masculino,A.C. Bhaktivedanta Swami Prabhupāda,4.21,10130,754,93
+59327,Masculino,A.C. Bhaktivedanta Swami Prabhupda,4.21,10130,754,93
 6093739,Masculino,Bibhutibhushan Bandyopadhyay,4.43,12133,723,93
 90,Masculino,Mulk Raj Anand,3.7,4767,390,93
 6885811,Masculino,Boyko Ovcharov,4.65,127,45,32

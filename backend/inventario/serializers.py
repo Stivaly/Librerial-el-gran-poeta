@@ -8,7 +8,7 @@ class PaisSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class AutorSerializer(serializers.ModelSerializer):
-    pais = PaisSerializer()
+    pais = PaisSerializer(source='id_pais', read_only=True)
     
     class Meta:
         model = Autor
@@ -31,10 +31,10 @@ class GeneroSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class LibroSerializer(serializers.ModelSerializer):
-    editorial = EditorialSerializer()
-    autor = AutorSerializer()
-    idioma = IdiomaSerializer()
-    genero = GeneroSerializer()
+    editorial = EditorialSerializer(source='id_editorial', read_only=True)
+    autor = AutorSerializer(source='id_autor', read_only=True)
+    idioma = IdiomaSerializer(source='id_idioma', read_only=True)
+    genero = GeneroSerializer(source='id_genero', read_only=True)
     
     class Meta:
         model = Libro
