@@ -22,17 +22,16 @@ USER = os.getenv('SECRET_USER_BD_SEENODE')
 NAME = os.getenv('SECRET_NAME_BD_SEENODE')
 HOST = os.getenv('SECRET_HOST_BD_SEENODE')
 PORT = os.getenv('SECRET_PORT_BD_SEENODE')
-
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Definición del puerto predeterminado para el servidor de desarrollo de Django
-DEFAULT_PORT = '5000'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-SECRET_KEY = 'django-insecure-ujbuic71oe6*vtq9uie5p@k04o1h7(d&do+dsn1-^4)%6h&8*5'
+SECRET_KEY = SECRET_KEY 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
