@@ -12,31 +12,26 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
 
 # Load environment variables
-load_dotenv()
-PASSWORD = os.getenv('SECRET_PASSWORD_BD_SEENODE')
-USER = os.getenv('SECRET_USER_BD_SEENODE')
-NAME = os.getenv('SECRET_NAME_BD_SEENODE')
-HOST = os.getenv('SECRET_HOST_BD_SEENODE')
-PORT = os.getenv('SECRET_PORT_BD_SEENODE')
-SECRET_KEY = os.getenv('SECRET_KEY')
+PASSWORD = os.getenv('PASSWORD')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Definición del puerto predeterminado para el servidor de desarrollo de Django
+DEFAULT_PORT = '5000'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-SECRET_KEY = SECRET_KEY 
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.1.0.4', 'localhost', '127.0.0.1', 'http://127.0.0.1:8000']
+ALLOWED_HOSTS = ['10.1.0.4']
 
 
 # Application definition
@@ -51,8 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
-    'backend',
-    'inventario',
+    'backend'
 ]
 
 MIDDLEWARE = [
@@ -68,10 +62,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://74.249.105.91",
-    # Ajusta el puerto según sea necesario
-    'http://localhost',
-    'http://127.0.0.1',
+    "http://74.249.105.91", # Ajusta el puerto según sea necesario
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -102,11 +93,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': NAME,
-        'USER': USER,
-        'PASSWORD': PASSWORD,
-        'HOST': HOST,
-        'PORT': PORT
+        'NAME': 'elpoetabd',
+        'USER': 'lepadmin',
+        'PASSWORD': PASSWORD, # CREAR VARIABLE DE ENTORNO PARA LA PASSWORD
+        'HOST': 'elpoeeta-db.mysql.database.azure.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {
+                'ca': 'backend/certificates/DigiCertGlobalRootCA.crt.pem',
+                }
+        }
     }
 }
 

@@ -56,18 +56,6 @@ class Idioma(models.Model):
     def __str__(self) -> str:
         return self.idioma
     
-class Genero(models.Model):
-    id_genero = models.AutoField(primary_key=True)
-    genero = models.CharField(max_length=255)
-    
-    class Meta:
-        verbose_name = 'Genero'
-        verbose_name_plural = 'Generos'
-        ordering = ['genero']
-        
-    def __str__(self) -> str:
-        return self.genero
-    
 class Libro(models.Model):
     id_libro = models.AutoField(primary_key=True)
     libro_nombre = models.CharField(max_length=255)
@@ -79,15 +67,26 @@ class Libro(models.Model):
     id_autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
     id_idioma = models.ForeignKey(Idioma, on_delete=models.CASCADE)
     libro_ISBN = models.CharField(max_length=255)
-    id_genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = 'Libro'
         verbose_name_plural = 'Libros'
-        ordering = ['libro_nombre']
+        ordering = ['titulo']
     
     def __str__(self) -> str:
         return self.libro_nombre
+    
+class Genero(models.Model):
+    id_genero = models.AutoField(primary_key=True)
+    genero = models.CharField(max_length=255)
+    
+    class Meta:
+        verbose_name = 'Genero'
+        verbose_name_plural = 'Generos'
+        ordering = ['genero']
+    
+    def __str__(self) -> str:
+        return self.genero
     
 class Region(models.Model):
     id_region = models.AutoField(primary_key=True)
@@ -176,6 +175,7 @@ class Movimiento(models.Model):
     fecha = models.DateField()
     rut_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     id_bodega_origen = models.ForeignKey(Bodega, on_delete=models.CASCADE)
+    id_bodega_destino = models.ForeignKey(Bodega, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Movimiento'
