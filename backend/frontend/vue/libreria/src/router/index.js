@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from '../views/LoginView.vue'
+import BodegueroView from '../views/BodegueroView.vue'
 
 const routes = [
   {
@@ -13,8 +14,8 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/home/bodeguero',
-    name: 'home',
+    path: '/bodeguero',
+    name: 'bodeguero',
     component: BodegueroView
   },
   {

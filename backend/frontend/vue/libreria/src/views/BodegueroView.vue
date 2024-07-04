@@ -1,15 +1,15 @@
 <template>
-    <Home />
+    <Bodeguero />
   </template>
   
   <script>
   // @ is an alias to /src
-  import Home from '@/components/Bodeguro.vue'
+  import Bodeguero from '@/components/Bodeguero.vue'
   
   export default {
     name: 'BodegueroView',
     components: {
-      Home
+      Bodeguero
     }
   }
   </script>
