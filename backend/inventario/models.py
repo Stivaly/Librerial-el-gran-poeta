@@ -133,8 +133,6 @@ class Bodega(models.Model):
     id_bodega = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=255)
     calle = models.CharField(max_length=255)
-    id_libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
-    cantidad = models.IntegerField()
     id_region = models.ForeignKey(Region, on_delete=models.CASCADE)
     id_ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
     id_comuna = models.ForeignKey(Comuna, on_delete=models.CASCADE)
@@ -168,12 +166,25 @@ class Usuario(models.Model):
     def __str__(self) -> str:
         return self.nombre_usuario
     
+class BodegaLibro(models.Model):
+    bodega = models.ForeignKey(Bodega, on_delete=models.CASCADE)
+    libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+
+    class Meta:
+        unique_together = ('bodega', 'libro')
+        verbose_name = 'Bodega Libro'
+        verbose_name_plural = 'Bodegas Libros'
+
+    def __str__(self) -> str:
+        return f'{self.bodega.nombre} - {self.libro.libro_nombre}'
+    
 class Movimiento(models.Model):
     id_movimiento = models.AutoField(primary_key=True)
     id_libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
     tipo_movimiento = models.CharField(max_length=255)
     cantidad = models.IntegerField()
-    fecha = models.DateField()
+    fecha = models.DateTimeField(auto_now_add=True)
     rut_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     id_bodega_origen = models.ForeignKey(Bodega, on_delete=models.CASCADE)
 

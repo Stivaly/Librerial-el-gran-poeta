@@ -1,0 +1,15 @@
+POST http://127.0.0.1:8000/api/agregar/
+Content-Type: application/json
+
+{
+    "libro_nombre": "Nombre prueba 1",
+    "libro_numpaginas": 18,
+    "libro_rating_promedio": 0.0,
+    "libro_fecha_publicacion": "2024-07-04",
+    "libro_review_counts": 0,
+    "libro_ISBN": "3423655X",
+    "id_editorial": 1,  
+    "id_autor": 4,      
+    "id_idioma": 3,   
+    "id_genero": 10      
+}

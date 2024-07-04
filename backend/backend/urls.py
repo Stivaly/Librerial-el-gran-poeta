@@ -11,3 +11,7 @@ urlpatterns = [
     re_path('api/test_token/', views.test_token),
     re_path('api/', include('inventario.urls')),
 ]
+
+
+
+

@@ -32,13 +32,6 @@
                         :class="{ active: activeButton === 'agregar' }">
                   Agregar Producto
                 </button>
-                <button @click="mostrarFormulario = false; toggleColumnas(); setActive('eliminar'); "
-                        :aria-current="activeButton === 'eliminar' ? 'true' : 'false'" 
-                        type="button" 
-                        class="list-group-item list-group-item-action"
-                        :class="{ active: activeButton === 'eliminar'}">
-                  Eliminar Producto
-                </button>
                 <button @click="mostrarFormulario = false; mostrarResumen = true; setActive('informe')"
                         :aria-current="activeButton === 'informe' ? 'true' : 'false'"  
                         type="button" 
@@ -129,11 +122,11 @@
                   <td>{{ libro.id_libro }}</td>
                   <td>{{ libro.libro_nombre }}</td>
                   <td>{{ libro.libro_numpaginas }}</td>
-                  <td>{{ libro.editorial.editorial }}</td>
-                  <td>{{ libro.autor.nombre_autor }}</td>
+                  <td>{{ getNombreById(libro.id_editorial, editorialesExistentes) }}</td>
+                  <td>{{ getNombreById(libro.id_autor, autoresExistentes) }}</td>
                   <td>{{ libro.libro_fecha_publicacion }}</td>
-                  <td>{{ libro.idioma.idioma }}</td>
-                  <td>{{ libro.genero.genero }}</td>
+                  <td>{{ getNombreById(libro.id_idioma, idiomasExistentes) }}</td>
+                  <td>{{ getNombreById(libro.id_genero, generosExistentes) }}</td>
                   <td v-if="!mostrarResumen">
                     <button @click="eliminarProducto(libro.id)" type="button" class="btn btn-danger">Eliminar</button>
                   </td>
@@ -171,20 +164,25 @@
 
   const mostrarFormulario = ref(false)
   const ocultarFormulario = mostrarFormulario.value = false
+
   const lnombre = ref('')
-  const lpaginas = 0
+  const lpaginas = ref('')
   const leditorial = ref('')
   const lautor = ref('')
   const lfecha = ref('')
   const lisbn = ref('')
   const lidioma = ref('')
   const lgenero = ref('')
+
   const libros = ref([])
   const librosPorPagina = 8
   const paginaActual = ref(1)
   const mostrarResumen = ref(true)
 
-  const idGeneroSeleccionado = null, idIdiomaSeleccionado = null, idAutorSeleccionado = null, idEditorialSeleccionada = null;
+  const idGeneroSeleccionado = ref(null); 
+  const idIdiomaSeleccionado = ref(null); 
+  const idAutorSeleccionado = ref(null); 
+  const idEditorialSeleccionada = ref(null);
 
   const generosExistentes = [
   { id: 1, genero: 'Novela' },
@@ -239,12 +237,15 @@
       console.log('Error al cargar libros:', error);
     }
   };
-
+  function getNombreById(id, lista) {
+    const item = lista.find(item => item.id === id);
+    return item ? item.genero || item.idioma || item.autor || item.editorial : 'Desconocido';
+  }
   onMounted(() => {
     cargarLibros();
   }) 
     
-
+  
   const librosPaginados = computed(() => {
     const inicio = (paginaActual.value - 1) * librosPorPagina
     const fin = paginaActual.value * librosPorPagina
@@ -262,54 +263,29 @@
   const totalPaginas = computed(() => Math.ceil(libros.value.length / librosPorPagina))
 
   const handleSubmit = async () => {
+    try {    
+
+      lastId++;
+
+      const nuevoLibro = {
+          "libro_nombre": lnombre.value,
+          "libro_numpaginas": lpaginas.value,
+          "libro_rating_promedio": 0.0,
+          "libro_fecha_publicacion": lfecha.value,
+          "libro_review_counts": 0,
+          "libro_ISBN": lisbn.value,
+          "id_editorial": idEditorialSeleccionada.value,
+          "id_autor": idAutorSeleccionado.value,
+          "id_idioma": idIdiomaSeleccionado.value,
+          "id_genero": idGeneroSeleccionado.value
+      };
+
     
-    if (!lnombre.value || !leditorial.value || !lpaginas.value || !lfecha.value || !lisbn.value || !lidioma.value || !lautor.value || !lgenero.value) {
-      alert('Ingrese todos los campos')
-      return
-    }
-
-    const nuevoLibro = {
-      id: lastId + 1,
-      libro_nombre: lnombre.value,
-      libro_numpaginas: lpaginas.value,
-      editorial: {
-        id_editorial: leditorial.value,  
-        editorial: leditorial.options[leditorial.selectedIndex].text  
-      },
-      autor: {
-        id_autor: lautor.value,  
-        nombre_autor: lautor.options[lautor.selectedIndex].text,  
-        pais: {
-          id_pais: lautor.options[lautor.selectedIndex].dataset.paisId,  
-          pais: lautor.options[lautor.selectedIndex].dataset.paisNombre,  
-          latitud: lautor.options[lautor.selectedIndex].dataset.paisLatitud,  
-          longitud: lautor.options[lautor.selectedIndex].dataset.paisLongitud  
-        },
-        autor_genero: lautor.options[lautor.selectedIndex].dataset.genero,  
-        autor_rating_promedio: lautor.options[lautor.selectedIndex].dataset.ratingPromedio,  
-        cantidad_rating_autor: lautor.options[lautor.selectedIndex].dataset.cantidadRating,  
-        cantidad_comentarios: lautor.options[lautor.selectedIndex].dataset.cantidadComentarios  
-      },
-      idioma: {
-        id_idioma: lidioma.value,  
-        idioma: lidioma.options[lidioma.selectedIndex].text  
-      },
-      libro_rating_promedio: 0, 
-      libro_fecha_publicacion: lfecha.value,
-      libro_review_counts: 0,  
-      libro_ISBN: lisbn.value, 
-      id_autor: lautor.value, 
-      id_editorial: leditorial.value,  
-      id_idioma: lidioma.value,  
-      id_genero: lgenero.value,
-    };
-
-    try {
-      const baseURL = `/api/agregar/${id}`
+      const baseURL = `/api/agregar/`
       const response = await axios.post(baseURL, nuevoLibro);
       if (response.status === 201) {
-        alert('Libro guardado exitosamente');
-        libros.value.push(nuevoLibro)
+        alert('Libro agregado exitosamente');
+        await cargarLibros();
     
         mostrarFormulario.value = false
     
@@ -318,8 +294,9 @@
         leditorial.value = ''
         lautor.value = ''
         lfecha.value = ''
+        lisbn.value = ''
         lidioma.value = ''
-        lresumen.value = ''
+        lgenero.value = ''
       } 
       // Ajustar la página actual para mostrar el nuevo libro si está en una nueva página
       if (libros.value.length > paginaActual.value * librosPorPagina) {
@@ -330,32 +307,6 @@
       alert('Ocurrió un error al guardar el libro. Por favor, inténtelo de nuevo.');
     }
   }
-
-  const toggleColumnas = () => {
-    mostrarResumen.value = !mostrarResumen.value;
-  }
-
-  const eliminarProducto = async (id) => {
-    const baseURL = `/api/eliminar/${id}`
-    try {
-      const response = await axios.delete(baseURL); 
-      if (response.status === 200) {
-        const index = libros.value.findIndex(libro => libro.id === id);
-        if (index !== -1) {
-          libros.value.splice(index, 1);
-        } else {
-          console.error(`No se encontró un libro con ID ${id} en la página actual`);
-        }
-        alert('Producto eliminado exitosamente');
-      } else {
-        alert(`Error al eliminar libro con ID ${id}. Estado de respuesta: ${response.status}`);
-      }
-    } catch (error) {
-        alert(`Error al eliminar libro con ID ${id}:`, error);
-        // Puedes manejar el error según tu lógica de la aplicación
-        throw error;
-    }
-  };
 
   const cambiarPagina = (pagina) => {
     if (pagina >= 1 && pagina <= totalPaginas.value) {
