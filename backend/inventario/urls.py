@@ -7,5 +7,3 @@ urlpatterns = [
     re_path('eliminar/', views.eliminar_producto),
 ]
 
-
-

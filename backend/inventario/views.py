@@ -12,9 +12,7 @@ from django.shortcuts import get_object_or_404, redirect
 def agregar_producto(request):
     libro = LibroSerializer(data=request.data.get('libro'))
     print(libro)
-    bodega = BodegaSerializer(data=request.data.get('bodega'))
-    print(bodega)
-    if libro.is_valid() and bodega.is_valid():
+    if libro.is_valid():
          return Response({'mensaje': 'Producto agregado exitosamente'}, status=201)
     else:
         return Response({'errores': libro.errors + bodega.errors}, status=400)

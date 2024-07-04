@@ -148,7 +148,7 @@ class Bodega(models.Model):
         return self.nombre 
     
 class Usuario(models.Model):
-    rut_usuario = models.IntegerField(primary_key=True) # Cambiar rut a char en bd
+    rut_usuario = models.IntegerField(primary_key=True) 
     codigo_verificador = models.CharField(max_length=1)
     nombre_usuario = models.CharField(max_length=255)
     correo = models.EmailField()
@@ -184,8 +184,3 @@ class Movimiento(models.Model):
         
     def __str__(self) -> str:
         return self.tipo_movimiento
-
-
-        
-        
-    

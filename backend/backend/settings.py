@@ -16,7 +16,10 @@ from dotenv import load_dotenv
 
 
 # Load environment variables
-load_dotenv()
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+dotenv_path = BASE_DIR / '.env'
+load_dotenv(dotenv_path)
 PASSWORD = os.getenv('SECRET_PASSWORD_BD_SEENODE')
 USER = os.getenv('SECRET_USER_BD_SEENODE')
 NAME = os.getenv('SECRET_NAME_BD_SEENODE')
@@ -25,7 +28,6 @@ PORT = os.getenv('SECRET_PORT_BD_SEENODE')
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Definición del puerto predeterminado para el servidor de desarrollo de Django
 # Quick-start development settings - unsuitable for production

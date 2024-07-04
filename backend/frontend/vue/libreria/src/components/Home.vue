@@ -68,22 +68,33 @@
                 <input v-model="lpaginas" class="form-control" type="text" id="lpaginas" placeholder="Numero de páginas del Libro"
                  /><br />
                 <label for="leditorial" class="text-dark"><span class="text-danger">* </span>Ingrese nombre de la editorial:</label>
-                <input v-model="leditorial" class="form-control" type="text" id="leditorial" placeholder="Nombre Editorial"  /><br />
+                <select v-model="idEditorialSeleccionada" class="form-control" id="leditorial">
+                    <option value="null" disabled selected>Seleccione una editorial</option>
+                    <option v-for="editorial in editorialesExistentes" :key="editorial.id" :value="editorial.id">{{ editorial.editorial }}</option>
+                </select><br />
                 <label for="lautor" class="text-dark"><span class="text-danger">* </span>Ingrese nombre del autor: </label>
-                <input v-model="lautor" class="form-control" type="text" id="lautor" placeholder="Nombre Autor"
-                   /><br />
+                <select v-model="idAutorSeleccionado" class="form-control" id="lautor">
+                    <option value="null" disabled selected>Seleccione un autor</option>
+                    <option v-for="autor in autoresExistentes" :key="autor.id" :value="autor.id">{{ autor.autor }}</option>
+                </select><br />
                 <label for="lfecha" class="text-dark"><span class="text-danger">* </span> Ingrese fecha de publicación del libro: </label>
-                <input v-model="lfecha" class="form-control" type="text" id="lfecha" placeholder="Fecha de publicación del Libro"
+                <input v-model="lfecha" class="form-control" type="text" id="lfecha" placeholder="Fecha de publicación del Libro YYYY-MM-DD"
                  /><br />
                  <label for="lisbn" class="text-dark"><span class="text-danger">* </span> Ingrese código ISBN del libro: </label>
                 <input v-model="lisbn" class="form-control" type="text" id="lisbn" placeholder="Fecha de publicación del Libro"
                  /><br />
                 <label for="lidioma" class="text-dark"><span class="text-danger">* </span> Ingrese el idioma del libro: </label>
-                <input v-model="lidioma" class="form-control" type="text" id="lidioma" placeholder="Fecha de publicación del Libro"
-                 /><br />
-                <label for="lgenero" class="text-dark"><span class="text-danger">* </span>Ingrese Género del libro: </label>
-                <input v-model="lgenero" class="form-control" id="lgenero" placeholder="Genero"
-                  ></input><br>
+                <select v-model="idIdiomaSeleccionado" class="form-control" id="lidioma">
+                    <option value="null" disabled selected>Seleccione un idioma</option>
+                    <option v-for="idioma in idiomasExistentes" :key="idioma.id" :value="idioma.id">{{ idioma.idioma }}</option>
+                </select><br />
+                <label for="lgenero" class="text-dark">
+                  <span class="text-danger">* </span>Ingrese Género del libro: </label>
+                  <select v-model="idGeneroSeleccionado" class="form-control" id="lgenero">
+                    <option value="null" disabled selected>Seleccione un género</option>
+                    <option v-for="genero in generosExistentes" :key="genero.id" :value="genero.id">{{ genero.genero }}</option>
+                  </select>
+                  <br>
                 <button type="submit" class="btn btn-primary me-3" value="Enviar">Agregar</button>
                 <button @click="mostrarFormulario = false" type="button" class="btn btn-primary"
                   value="Cancelar">Cancelar</button>
@@ -161,7 +172,7 @@
   const mostrarFormulario = ref(false)
   const ocultarFormulario = mostrarFormulario.value = false
   const lnombre = ref('')
-  const lpaginas = ref('')
+  const lpaginas = 0
   const leditorial = ref('')
   const lautor = ref('')
   const lfecha = ref('')
@@ -172,6 +183,39 @@
   const librosPorPagina = 8
   const paginaActual = ref(1)
   const mostrarResumen = ref(true)
+
+  const idGeneroSeleccionado = null, idIdiomaSeleccionado = null, idAutorSeleccionado = null, idEditorialSeleccionada = null;
+
+  const generosExistentes = [
+  { id: 1, genero: 'Novela' },
+  { id: 2, genero: 'Poesía' },
+  { id: 3, genero: 'Drama' },
+  { id: 4, genero: 'Ciencia Ficción' },
+  { id: 5, genero: 'Fantasía' },
+  { id: 6, genero: 'Terror' },
+  { id: 7, genero: 'Aventura' },
+  { id: 8, genero: 'Histórica' },
+  { id: 9, genero: 'Romance' },
+  { id: 10, genero: 'Ensayo' }
+  ];
+
+  const idiomasExistentes = [
+  { id: 1, idioma: 'Español' },
+  { id: 2, idioma: 'Inglés' },
+  { id: 3, idioma: 'Francés' }
+  ];
+
+  const autoresExistentes = [
+    {id: 4, autor: 'Douglas Adams'},
+    {id: 7, autor: 'Bill Bryson'},
+    {id: 16, autor: 'Edith Wharton'}
+  ]
+
+  const editorialesExistentes = [
+    {id: 14, editorial: '1500 Books LLC'},
+    {id: 28, editorial: '826 Books'},
+    {id: 37, editorial: 'A&C  Black'}
+  ]
 
   const obtenerLibros = async () => {
     const baseURL = '/api/home/'
@@ -250,12 +294,12 @@
         id_idioma: lidioma.value,  
         idioma: lidioma.options[lidioma.selectedIndex].text  
       },
+      libro_rating_promedio: 0, 
       libro_fecha_publicacion: lfecha.value,
-      libro_rating_promedio: 0,  
       libro_review_counts: 0,  
       libro_ISBN: lisbn.value, 
+      id_autor: lautor.value, 
       id_editorial: leditorial.value,  
-      id_autor: lautor.value,  
       id_idioma: lidioma.value,  
       id_genero: lgenero.value,
     };
