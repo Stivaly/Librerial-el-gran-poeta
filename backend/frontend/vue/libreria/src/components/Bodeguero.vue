@@ -14,26 +14,14 @@
     </div>
   </template>
   
-  <script>
+  <script setup>
   
-  export default {
-    name: "Bodeguero",
-    data() {
-      return {
-        form: {
-          username: "",
-          password: ""
-        }
-      };
-    },
-    computed: {
-      validarPassword() {
-        const exp = /^(?=.*\d)(?=.*[a-záéíóúñ]).*[A-ZÁÉÍÓÚÜÑ]/;
-        const isValid = exp.test(this.form.password);
-        return !isValid;
-      }
-    }
-  };
+    const validarPassword = () => {
+  const exp = /^(?=.*\d)(?=.*[a-záéíóúñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+  const isValid = exp.test(this.form.password);
+  return !isValid;
+    };
+
   </script>
   
   <style scoped>
