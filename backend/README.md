@@ -49,7 +49,7 @@ Sigue los siguientes pasos de manera ordenada para clonar e instalar el proyecto
 ### Configuración del Entorno
 
 1. Crea un archivo `.env` en la raíz del proyecto y agrega las variables de entorno necesarias que se encuentran dentro del informe de este proyecto.
-   (Las Credenciales actuales se encuentran alojadas en el informe enviado al tutor para su evaluación.)
+
 2. Inicia el servidor de backend:
    ```bash
     python manage.py runserver
