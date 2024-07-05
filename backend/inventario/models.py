@@ -182,11 +182,12 @@ class BodegaLibro(models.Model):
 class Movimiento(models.Model):
     id_movimiento = models.AutoField(primary_key=True)
     id_libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
-    tipo_movimiento = models.CharField(max_length=255)
+    tipo_movimiento = models.CharField(max_length=255, choices=[('entrada', 'Entrada'), ('salida', 'Salida'), ('traslado', 'Traslado')])
     cantidad = models.IntegerField()
     fecha = models.DateTimeField(auto_now_add=True)
     rut_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    id_bodega_origen = models.ForeignKey(Bodega, on_delete=models.CASCADE)
+    id_bodega_origen = models.ForeignKey(Bodega, related_name='movimientos_salida', on_delete=models.CASCADE)
+    id_bodega_destino = models.ForeignKey(Bodega, related_name='movimientos_entrada', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Movimiento'
@@ -194,4 +195,4 @@ class Movimiento(models.Model):
         ordering = ['fecha']
         
     def __str__(self) -> str:
-        return self.tipo_movimiento
+        return f"{self.tipo_movimiento} - {self.id_libro}"

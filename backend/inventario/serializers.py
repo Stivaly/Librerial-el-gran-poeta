@@ -105,7 +105,7 @@ class BodegaLibroSerializer(serializers.ModelSerializer):
 class MovimientoSerializer(serializers.ModelSerializer):    
     id_libro = serializers.PrimaryKeyRelatedField(queryset=Libro.objects.all())
     rut_usuario = serializers.PrimaryKeyRelatedField(queryset=Usuario.objects.all())
-    id_bodega_origen = serializers.PrimaryKeyRelatedField(queryset=Bodega.objects.all())
+    id_bodega_origen = serializers.PrimaryKeyRelatedField(queryset=Bodega.objects.all(), allow_null=True, required=False)
     id_bodega_destino = serializers.PrimaryKeyRelatedField(queryset=Bodega.objects.all(), allow_null=True, required=False)
     
     class Meta:

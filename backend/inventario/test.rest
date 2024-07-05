@@ -1,8 +1,19 @@
+POST http://127.0.0.1:8000/api/movimiento/entrada/
+Content-Type: application/json
+
+{
+  "id_libro": 1,
+  "cantidad": 10,
+  "rut_usuario": 2,
+  "id_bodega_destino": 4    
+}
+
+
 POST http://127.0.0.1:8000/api/agregar/
 Content-Type: application/json
 
 {
-    "libro_nombre": "Nombre prueba 1",
+    "libro_nombre": "",
     "libro_numpaginas": 18,
     "libro_rating_promedio": 0.0,
     "libro_fecha_publicacion": "2024-07-04",
@@ -13,3 +24,5 @@ Content-Type: application/json
     "id_idioma": 3,   
     "id_genero": 10      
 }
+
+

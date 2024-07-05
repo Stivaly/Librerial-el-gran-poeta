@@ -30,7 +30,9 @@ def lista_productos(request):
 
 @api_view(['POST'])
 def registrar_entrada(request):
-    serializer = MovimientoSerializer(data=request.data)
+    data = request.data.copy()
+    data['tipo_movimiento'] = 'entrada'
+    serializer = MovimientoSerializer(data=data)
     if serializer.is_valid():
         serializer.save(tipo_movimiento='entrada')
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -38,7 +40,9 @@ def registrar_entrada(request):
 
 @api_view(['POST'])
 def registrar_salida(request):
-    serializer = MovimientoSerializer(data=request.data)
+    data = request.data.copy()
+    data['tipo_movimiento'] = 'salida'
+    serializer = MovimientoSerializer(data=data)
     if serializer.is_valid():
         serializer.save(tipo_movimiento='salida')
         return Response(serializer.data, status=status.HTTP_201_CREATED)
